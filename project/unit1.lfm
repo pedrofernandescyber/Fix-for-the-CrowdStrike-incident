@@ -51,7 +51,7 @@ object Form1: TForm1
     Height = 15
     Top = 64
     Width = 131
-    Caption = 'Version 1.01 (2024-07-20)'
+    Caption = 'Version 1.02 (2024-07-20)'
   end
   object Button4: TButton
     Left = 144
