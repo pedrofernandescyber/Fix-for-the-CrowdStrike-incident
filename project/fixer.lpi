@@ -12,6 +12,8 @@
       <XPManifest>
         <DpiAware Value="True"/>
         <ExecutionLevel Value="requireAdministrator"/>
+        <TextName Value="PedroFernandes.CrowdStrikeFixer"/>
+        <TextDesc Value="Fixed for the CrowdStrike incident"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
@@ -55,6 +57,13 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <TargetCPU Value="i386"/>
+      <TargetOS Value="win32"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+    </CodeGeneration>
     <Linking>
       <Debugging>
         <DebugInfoType Value="dsDwarf3"/>

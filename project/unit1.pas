@@ -5,8 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
-
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Windows;
 type
 
   { TForm1 }
@@ -15,10 +14,15 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
   private
 
   public
@@ -59,7 +63,17 @@ begin
      ShowMessage('SUCCESS! No file found starting with "C-00000291" was found!');
    end;
 
-   FindClose(SearchRec);
+   SysUtils.FindClose(SearchRec);
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://www.pedrof.com', nil, nil, SW_SHOWNORMAL);
+end;
+
+procedure TForm1.Label3Click(Sender: TObject);
+begin
+  ShellExecute(0, 'open', 'https://www.pedrof.com', nil, nil, SW_SHOWNORMAL);
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -72,7 +86,7 @@ begin
   if FileFound then
   begin
     repeat
-      if DeleteFile(Search_Path + SearchRec.Name) then
+      if SysUtils.DeleteFile(Search_Path + SearchRec.Name) then
       begin
         ShowMessage('Deleted file: ' + SearchRec.Name);
       end
@@ -81,7 +95,7 @@ begin
         ShowMessage('Failed to delete file: ' + SearchRec.Name);
       end;
     until FindNext(SearchRec) <> 0;
-    FindClose(SearchRec);
+    SysUtils.FindClose(SearchRec);
   end
   else
   begin
