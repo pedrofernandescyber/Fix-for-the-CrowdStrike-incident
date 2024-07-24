@@ -43,4 +43,5 @@ To then create a a USB drive, use Rufus, with the default options.
 System requirements:
 
 * Windows 10 or Windows 11
-* Internet access and approximately 3.4 GB will be downloaded
+* Internet access: approximately 3.4 GB will be downloaded
+* Space requirements: 9 GB of available space
