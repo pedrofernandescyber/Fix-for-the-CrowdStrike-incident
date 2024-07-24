@@ -2,11 +2,13 @@
  Fix for the CrowdStrike incident
 
 Homepage and instructions:
+
 https://www.pedrof.com/blog/en/projects/fixer-for-crowdstrike-incident/
 
 This helps delete the problematic files, and is made simple to use, so it can be used by Junior IT personnel.
 
 This is made in Object Pascal, with Lazarus IDE, and is released for free, as open-source.
+
 Features
 
 * Simple and intuitive
