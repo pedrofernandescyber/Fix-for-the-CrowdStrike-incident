@@ -13,6 +13,7 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
+    Button10: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
@@ -20,11 +21,11 @@ type
     Button6: TButton;
     Button7: TButton;
     Button8: TButton;
-    GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
+    Button9: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    procedure Button10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -33,6 +34,7 @@ type
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
     procedure Label3Click(Sender: TObject);
   private
 
@@ -165,6 +167,38 @@ begin
   finally
     AProcess.Free;
   end;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+var
+  AProcess: TProcess;
+begin
+  AProcess := TProcess.Create(nil);
+  try
+    AProcess.Executable := 'cmd.exe';
+    AProcess.Parameters.Add('/c bcdedit /set {default} safeboot network');
+    AProcess.Options := AProcess.Options + [poWaitOnExit];
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+  ShowMessage('Safe Mode Enabled!');
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+var
+  AProcess: TProcess;
+begin
+  AProcess := TProcess.Create(nil);
+  try
+    AProcess.Executable := 'cmd.exe';
+    AProcess.Parameters.Add('/c bcdedit /deletevalue {default} safeboot');
+    AProcess.Options := AProcess.Options + [poWaitOnExit];
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+    ShowMessage('Safe Mode Disabled!');
 end;
 
 procedure TForm1.Label3Click(Sender: TObject);
